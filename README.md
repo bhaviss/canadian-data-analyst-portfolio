@@ -1,157 +1,83 @@
-# Bhavithra SS — Data Analytics Portfolio
+# Bhavithra SS
 
-**M.Sc. Information Technology | Research Assistant @ Concordia University Edmonton**
-**Ex-Data Analyst @ Besant Technologies | ML Engineer | Edmonton, Alberta 🇨🇦**
-
-📧 bhavithrass@gmail.com &nbsp;|&nbsp; 💼 [LinkedIn](https://www.linkedin.com/in/bhavithra-ss-/) &nbsp;|&nbsp; 📊 [Kaggle](https://www.kaggle.com/bhavi05) &nbsp;|&nbsp; 🌐 [bhaviss.com](https://www.bhaviss.com)
+📧 bhavithrass@gmail.com &nbsp;|&nbsp; [LinkedIn](https://www.linkedin.com/in/bhavithra-ss-/) &nbsp;|&nbsp; [Kaggle](https://www.kaggle.com/bhavi05) &nbsp;|&nbsp; [bhaviss.com](https://www.bhaviss.com) &nbsp;|&nbsp; Edmonton, AB
 
 ---
 
-## Who I Am
+M.Sc. Information Technology at Concordia University Edmonton (GPA 3.92/4). My research is on multimodal AI for space debris detection — real-time tracking using YOLO, MobileNetV2, and SORT. Before this, I spent 2+ years as a Data Analyst at Besant Technologies building Power BI and Tableau dashboards, running ETL pipelines, and working with datasets at the million-record scale.
 
-I'm Bhavithra — a data person who genuinely enjoys the full stack of a data problem, from messy raw data to a dashboard someone actually uses, or a model that actually ships. 
-
-Right now I'm a Research Assistant at Concordia University Edmonton completing my M.Sc. in Information Technology (GPA 3.92/4), where my research focuses on multimodal AI for space debris detection — tracking orbital objects in real time using YOLO, MobileNetV2, and SORT trajectory prediction. Before grad school I spent 2+ years as a Data Analyst at Besant Technologies, where I built Power BI and Tableau dashboards used by actual business teams, automated ETL pipelines, and worked with datasets at the 1M+ record scale.
-
-This portfolio documents the data work I've built to target Canadian roles across analytics, data science, data engineering, and ML. The projects here are grounded in Canadian datasets (Statistics Canada, CMHC, CIHI), Canadian industry contexts (Big 5 banks, telecom, retail, healthcare), and the tools that actually show up in Canadian job postings.
+I built this repo to have a place where my data work actually lives — SQL, Python, BI, ML, data engineering — not just bullet points on a resume.
 
 ---
 
-## My Actual Stack
+## Kaggle
 
-**Languages:** Python (primary), SQL (advanced), R (familiar)
-**ML/AI:** scikit-learn, XGBoost, LightGBM, PyTorch, SHAP/XAI, MLflow, SMOTE
-**Data & Viz:** Pandas, NumPy, Matplotlib, Seaborn, Plotly
-**BI Tools:** Power BI (DAX, Power Query, RLS), Tableau (LOD, Story Points), Excel (Advanced)
-**Data Engineering:** PostgreSQL, dbt, Apache Airflow, SQLAlchemy, Docker
-**Cloud:** Azure (ADF, Data Lake, Databricks), AWS (basics), GCP (basics)
-**Research:** Computer Vision (YOLO, MobileNetV2), NLP, Reinforcement Learning, Explainable AI
+Three public notebooks so far. More coming.
 
----
+**[Heart Disease Risk Prediction with Explainable ML](https://www.kaggle.com/code/bhavi05/01-heart-disease-risk-prediction-explainable-ml)**
+Binary classification on the Heart Failure Prediction dataset. Trained five models (Logistic Regression, Decision Tree, Random Forest, Gradient Boosting, XGBoost), then used SHAP to surface which clinical features actually drive each prediction. The explainability piece is the real point — in healthcare, a black-box answer isn't enough.
 
-## Kaggle Notebooks (Public)
+**[Credit Card Fraud Detection with Imbalanced ML](https://www.kaggle.com/code/bhavi05/03-credit-card-fraud-detection-imbalanced-ml)**
+284,807 transactions, 492 frauds. That's a 500:1 class ratio, which breaks standard accuracy completely. Built a pipeline around SMOTE, class weighting, and threshold adjustment, and evaluated with Precision-Recall AUC instead of accuracy. Runtime 4m 10s — it actually runs the full training loop.
 
-These are real, runnable notebooks — not just descriptions. Each one goes through the full data science lifecycle.
+**[Customer Churn Prediction with Explainable ML](https://www.kaggle.com/code/bhavi05/06-customer-churn-prediction-explainable-ml)**
+IBM Telco dataset, 7,043 customers, 21 features. Churn prediction with SHAP on top — contract type, tenure, and monthly charges consistently come out as the biggest drivers. Built it so the output is actually useful to whoever would act on it, not just a model score.
 
-### 1. Heart Disease Risk Prediction with Explainable ML
-**→ [View on Kaggle](https://www.kaggle.com/code/bhavi05/01-heart-disease-risk-prediction-explainable-ml)**
-
-Binary classification on the Heart Failure Prediction dataset. Built five models — Logistic Regression, Decision Tree, Random Forest, Gradient Boosting, XGBoost — then applied SHAP to show which clinical features actually drive predictions. The XAI piece matters here: in healthcare you can't just hand over a black-box model, you need to explain why it flagged a patient as high risk.
-
-**Tools:** Python, scikit-learn, XGBoost, SHAP, Matplotlib | **Dataset:** Heart Failure Prediction (Kaggle)
+Also have private notebooks in progress: product review sentiment (NLP), movie recommendation engine (collaborative filtering), flower recognition (CNN transfer learning). Making them public soon.
 
 ---
 
-### 2. Credit Card Fraud Detection with Imbalanced ML
-**→ [View on Kaggle](https://www.kaggle.com/code/bhavi05/03-credit-card-fraud-detection-imbalanced-ml)**
+## SQL
 
-This one tackles the class imbalance problem head-on. The MLG-ULB dataset has 284,807 transactions with only 492 frauds (0.17%) — a 500:1 ratio. Standard accuracy metrics are useless here. Used SMOTE, class weighting, and threshold adjustment, evaluated with Precision-Recall AUC and F1 rather than vanilla accuracy. Runtime: 4m 10s, Version 3.
+**`01_sql_analytics/retail_kpi_queries.sql`**
+Ten queries on a grocery retail scenario — revenue by province, YoY growth with LAG(), monthly cohort retention, RFM segmentation with NTILE(), store ranking with RANK()/DENSE_RANK(), product margin analysis, rolling averages, CLV estimation, inventory stockout detection, seasonal patterns. The kind of queries that show up in DA take-home tests.
 
-**Tools:** Python, scikit-learn, imbalanced-learn, SMOTE | **Dataset:** MLG-ULB Credit Card Fraud
-
----
-
-### 3. Customer Churn Prediction with Explainable ML
-**→ [View on Kaggle](https://www.kaggle.com/code/bhavi05/06-customer-churn-prediction-explainable-ml)**
-
-Churn prediction on the IBM Telco dataset (7,043 customers, 21 features). Beyond just predicting who churns, used SHAP to surface the strongest churn signals — contract type, tenure, and monthly charges consistently come out on top. Built with actionable business output in mind: the point isn't AUC, it's telling the retention team who to call first.
-
-**Tools:** Python, scikit-learn, XGBoost, SHAP | **Dataset:** IBM Telco Customer Churn
+**`01_sql_analytics/healthcare_wait_times.sql`**
+Five queries modeled on CIHI data structure — provincial benchmark compliance, 5-year trend analysis, pre/post COVID wait time comparisons, hospital performance scorecards with composite scoring, quarterly capacity planning. Wrote this because healthcare analytics is a real hiring vertical here and SQL for it looks different from retail.
 
 ---
 
-### Other Kaggle Work (Private — making public soon)
-- `09_product_review_sentiment` — NLP sentiment analysis on product reviews
-- - `08_movie_recommendation_engine` — Collaborative filtering recommendation system
-  - - `Flowers_recognition` — CNN image classifier (transfer learning)
-   
-    - ---
+## Power BI
 
-    ## Portfolio Projects (This Repo)
+**`04_powerbi_dashboards/dax_measures.md`**
+A full DAX library I actually use and reference — revenue/margin KPIs, time intelligence (MTD, YTD, prior year, MoM/YoY %, rolling windows), customer metrics (new vs returning, CLV, churn rate), province-level segmentation, product performance, and Row-Level Security patterns. Documented because DAX is the part of Power BI interviews where most people trip up.
 
-    These projects were built specifically to address gaps between my existing experience and what Canadian employers in each data role want to see.
+---
 
-    ---
+## Tableau
 
-    ### SQL Analytics (→ `01_sql_analytics/`)
+**`05_tableau_projects/tableau_calculated_fields.md`**
+Calculated fields, LOD expressions (FIXED, INCLUDE, EXCLUDE), table calculations, parameter controls, dashboard actions, and a Story Points structure — all written against a real estate dashboard scenario. LODs are the Tableau equivalent of window functions and most people avoid them. I don't.
 
-    **Why I built these:** My DA background is real, but most of my prior SQL work was in BI tool query builders, not raw PostgreSQL with window functions. These demonstrate I can write the kind of analytical SQL that shows up in Canadian DA take-home tests.
+---
 
-    **`retail_kpi_queries.sql`** — 10 queries covering a full Canadian grocery retail scenario: revenue by province (BC/ON/QC/AB), YoY growth with LAG(), monthly customer cohort retention, RFM segmentation with NTILE(), store performance ranking with RANK()/DENSE_RANK(), product margin analysis, 7/30-day rolling averages, CLV estimation, inventory stockout detection, and seasonal holiday pattern analysis.
+## Excel
 
-    **`healthcare_wait_times.sql`** — 5 queries modeled on CIHI data: provincial benchmark compliance rates, 5-year trend analysis with LAG() and rolling averages, pre/post COVID wait time comparison, hospital performance scorecards with composite scoring, and quarterly capacity planning analysis. Relevant for Health Canada, provincial health authorities, and consulting firms like Deloitte or KPMG Canada.
+**`03_excel_projects/excel_dashboard_guide.md`**
+Three dashboard builds: a financial P&L dashboard with Power Query, dynamic pivots, XLOOKUP, and waterfall charts. An HR analytics tracker with FORECAST.ETS() and salary equity formulas. A supply chain dashboard with Solver-based EOQ, reorder alerts, and Scenario Manager. Excel still runs most Canadian SME finance teams and I'm not too cool for it.
 
-    ---
+---
 
-    ### Excel Projects (→ `03_excel_projects/`)
+## Data Engineering
 
-    **Why I built these:** Power BI is my comfort zone for dashboards, but a lot of Canadian SME, finance, and government roles still run on Excel. The guide documents three high-level builds.
+**`06_data_engineering/dbt_models/README.md`**
+A dbt project with staging → intermediate → mart model layers. Covers incremental materialization, SCD Type 2 for a customer dimension, schema.yml data quality tests (unique, not_null, accepted values for province codes, value range checks), and the full dbt CLI workflow. I'm learning dbt properly and this is where I document it.
 
-    **Financial Dashboard for Canadian SME** — Power Query for automated refresh, dynamic pivot tables with province/product/month slicers, XLOOKUP/INDEX-MATCH/SUMPRODUCT formulas, KPI cards with conditional formatting, waterfall chart P&L, map chart by province.
+---
 
-    **HR Analytics Dashboard** — Attrition by department and tenure using COUNTIFS, headcount forecasting with FORECAST.ETS(), salary equity analysis, time-to-hire tracking.
+## Data Science / ML
 
-    **Supply Chain Dashboard** — EOQ calculation with Solver, reorder point alerts, supplier scorecard, demand forecasting with moving average, Scenario Manager for holiday season vs. disruption scenarios.
+**`08_data_science_projects/demand_forecasting/forecasting_model.py`**
+Retail demand forecasting with Canadian statutory holidays properly handled — Victoria Day, Thanksgiving on the 2nd Monday of October, Boxing Day, Labour Day. Most forecasting tutorials use a generic US holiday list and wonder why their seasonality is off. Generates 5 SKUs with trend + seasonal + COVID structural break, builds lag features and rolling statistics, compares naive baseline vs. LightGBM.
 
-    ---
+---
 
-    ### Power BI Dashboards (→ `04_powerbi_dashboards/`)
+## What I'm working on now
 
-    **Why I built these:** I have real Power BI experience from Besant Technologies, but I wanted to document advanced DAX patterns that come up in Canadian financial services interviews specifically.
+Research at Concordia on space debris detection — multimodal CNNs + YOLO + SORT trajectory prediction. Making my Kaggle notebooks public. Targeting data analyst and junior data scientist roles in Edmonton, Calgary, or remote. Working toward Azure DP-203 and dbt certification.
 
-    **`dax_measures.md`** — Full DAX library covering: revenue/margin KPIs, time intelligence (MTD, YTD, LY, MoM %, YoY %, rolling 30/60/90-day), customer analytics (new vs returning, CLV, churn rate), Canadian province segmentation, product performance, forecasting measures, and Row-Level Security patterns for branch-level banking dashboards.
+---
 
-    Three dashboard concepts documented: Canadian e-commerce (Shopify-type), Big 5 bank branch performance (with RLS for branch managers), and Public Health surveillance (PHAC-style COVID/respiratory tracking).
-
-    ---
-
-    ### Tableau Projects (→ `05_tableau_projects/`)
-
-    **`tableau_calculated_fields.md`** — Canadian Real Estate dashboard spec: FIXED/INCLUDE/EXCLUDE LOD expressions for national vs. provincial vs. city aggregations, table calculations (running total, 3-month moving average, RANK(), % of total), parameter controls for city selection and top-N filtering, dashboard actions (filter on click, highlight on hover), and a 5-chapter Story Points narrative structure.
-
-    ---
-
-    ### Data Engineering (→ `06_data_engineering/`)
-
-    **Why I built this:** My ETL experience is real (automated pipelines at Besant), but I hadn't yet worked with dbt formally. This is me learning it properly and documenting it.
-
-    **`dbt_models/README.md`** — Full dbt project structure: staging models (stg_sales.sql, stg_customers.sql with Canadian postal code regex validation), intermediate models (int_customer_orders.sql with RFM components and CLV estimation), and finance/customer marts. Includes incremental materialization pattern, SCD Type 2 for customer dimension, and schema.yml tests (unique, not_null, accepted Canadian province codes, value range checks). Also covers dbt CLI workflow.
-
-    ---
-
-    ### Data Science / ML (→ `08_data_science_projects/`)
-
-    **`demand_forecasting/forecasting_model.py`** — Retail demand forecasting with a properly built Canadian holiday calendar (Victoria Day, Thanksgiving on 2nd Monday October, Boxing Day, Labour Day). Generates 5 SKUs with realistic trend + seasonality + COVID structural break, engineers lag features and rolling stats, compares naive baseline vs. LightGBM. The holiday calendar piece is something I added specifically because it matters for Canadian retail and it's usually missing from generic tutorials.
-
-    ---
-
-    ## What I'm Currently Working On
-
-    - **Research:** Multimodal space debris detection — CNNs + YOLO + SORT trajectory prediction at Concordia
-    - - **Making public on Kaggle:** Product review NLP notebook and movie recommendation engine
-      - - **Targeting:** Data Analyst and junior Data Scientist / ML Engineer roles in Edmonton/Calgary/remote Canada
-        - - **Learning:** dbt certification, Azure Data Engineer Associate (DP-203)
-         
-          - ---
-
-          ## What Makes Me Different
-
-          I bridge research and applied analytics. Most of my ML work has been in applied research contexts (XAI, computer vision) which means I'm comfortable reading papers and translating them into code — not just running sklearn pipelines from tutorials. At the same time, my time at Besant taught me that dashboards only matter if stakeholders actually use them, which shapes how I communicate analytical findings.
-
-          I also genuinely understand the Canadian context — I live here, I follow the Canadian data community, I know CIHI vs CIBC vs CRTC vs Statistics Canada are completely different types of organizations that happen to share initials. That specificity shows up in the projects.
-
-          ---
-
-          ## Let's Connect
-
-          I'm actively looking for data roles in Canada. If something here looks relevant to what your team needs, I'd love to talk.
-
-          📧 **bhavithrass@gmail.com**
-          💼 **[linkedin.com/in/bhavithra-ss-/](https://www.linkedin.com/in/bhavithra-ss-/)**
-          📊 **[kaggle.com/bhavi05](https://www.kaggle.com/bhavi05)**
-          🔗 **[github.com/bhaviss](https://github.com/bhaviss)**
-          📍 **Edmonton, Alberta — open to remote, hybrid, or onsite across Canada**
-
-          ---
-
-          *Last updated June 2026*
+📧 **bhavithrass@gmail.com**
+💼 **[linkedin.com/in/bhavithra-ss-/](https://www.linkedin.com/in/bhavithra-ss-/)**
+📊 **[kaggle.com/bhavi05](https://www.kaggle.com/bhavi05)**
