@@ -1,0 +1,88 @@
+# ==========================================================
+# models/staging/sources.yml
+# Declares raw source tables dbt reads from
+# These map to the tables created by schema_and_seed_data.sql
+# ==========================================================
+
+version: 2
+
+sources:
+  - name: raw
+    description: "Raw tables created by schema_and_seed_data.sql"
+    schema: public   # change to your schema if different
+
+    tables:
+      - name: sales
+        description: "Raw transaction-level sales records"
+        columns:
+          - name: transaction_id
+            tests: [unique, not_null]
+          - name: customer_id
+            tests: [not_null]
+          - name: transaction_date
+            tests: [not_null]
+          - name: quantity
+            tests: [not_null]
+          - name: unit_price
+            tests: [not_null]
+
+      - name: customers
+        description: "Customer master table"
+        columns:
+          - name: customer_id
+            tests: [unique, not_null]
+          - name: email
+            tests: [unique, not_null]
+          - name: province_code
+            tests:
+              - accepted_values:
+                  values: ['ON','QC','BC','AB','MB','SK','NS','NB','NL','PE','YT','NT','NU']
+
+      - name: products
+        description: "Product catalogue"
+        columns:
+          - name: product_id
+            tests: [unique, not_null]
+          - name: sku
+            tests: [unique, not_null]
+
+      - name: stores
+        description: "Store locations"
+        columns:
+          - name: store_id
+            tests: [unique, not_null]
+          - name: province_code
+            tests:
+              - accepted_values:
+                  values: ['ON','QC','BC','AB','MB','SK','NS','NB','NL','PE','YT','NT','NU']
+
+      - name: provinces
+        description: "Canadian province reference table"
+        columns:
+          - name: province_code
+            tests: [unique, not_null]
+
+      # Healthcare tables
+      - name: wait_times
+        description: "Patient-level healthcare wait time records"
+        columns:
+          - name: wait_id
+            tests: [unique, not_null]
+          - name: outcome
+            tests:
+              - accepted_values:
+                  values: ['Completed','Cancelled','Pending']
+
+      - name: hospitals
+        description: "Hospital reference table"
+        columns:
+          - name: hospital_id
+            tests: [unique, not_null]
+
+      - name: procedure_types
+        description: "Medical procedure types with national benchmarks"
+        columns:
+          - name: procedure_code
+            tests: [unique, not_null]
+          - name: benchmark_days
+            tests: [not_null]
